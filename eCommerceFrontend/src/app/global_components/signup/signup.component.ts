@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm }   from '@angular/forms';
+
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
 
+  onSubmit() {
+    console.log("signup");
+    
+  }
 }

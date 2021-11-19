@@ -1,1 +1,92 @@
-<p>signup works!</p>
+<body>
+<div class="jumbotron m-5">
+        <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+          <div class="text-center mt-0 mb-2">
+            <span>SIGNUP FORM</span>
+          </div>
+          <div class="form-group ">
+            <label for="x1">Username :</label>
+            <input type="text" placeholder="Enter Your Gmail" id='x1' class="form-control"
+              [class.is-invalid]="!n1.valid && n1.touched" [class.is-valid]="n1.valid && n1.touched" name="email"
+              #n1="ngModel" ngModel required>
+            <small class="text-danger" [class.d-none]="n1.valid || n1.untouched">email is required</small>
+          </div>
+          <div class="form-group">
+            <label for="x2">Full Name :</label>
+            <input type="text" placeholder="Enter Your Full Name" id='x2' class="form-control"
+              [class.is-invalid]="!n2.valid && n2.touched" [class.is-valid]="n2.valid && n2.touched" name="name"
+              #n2="ngModel" ngModel required>
+            <small class="text-danger" [class.d-none]="n2.valid || n2.untouched">name is required</small>
+          </div>
+          <!-- <div class="form-group">
+              <label for="x3">Enter Password:</label>
+              <input type="password" placeholder="password" id='x3' class="form-control"  [class.is-invalid]="!n3.valid && n3.touched"
+                [class.is-valid]="n3.valid && n3.touched" name="password" #n3="ngModel" ngModel required>
+                 <small class="text-danger" [class.d-none]="n3.valid || n3.untouched">password is required</small>
+            </div> -->
+          <div class="form-group">
+            <label for="">Password :</label><br>
+            <p-password [toggleMask]="true" name="password" #n3="ngModel" ngModel>
+              <ng-template pTemplate="header">
+                <h6>Pick a password</h6>
+              </ng-template>
+              <ng-template pTemplate="footer">
+                <p-divider></p-divider>
+                <p class="p-mt-2">Suggestions</p>
+                <ul class="p-pl-2 p-ml-2 p-mt-0" style="line-height: 1.5">
+                  <li>At least one lowercase</li>
+                  <li>At least one uppercase</li>
+                  <li>At least one numeric</li>
+                  <li>Minimum 8 characters</li>
+                </ul>
+              </ng-template>
+            </p-password>
+          </div>
+          <label for="">Gender :</label>
+          <br>
+          <div class="form-check-inline">
+            <label class="form-check-label" for="radio1">
+              <input type="radio" class="form-check-input" id="radio1" name="gender" value="male" #n10="ngModel"
+                ngModel>Male
+            </label>
+          </div>
+          <div class="form-check-inline">
+            <label class="form-check-label" for="radio2">
+              <input type="radio" class="form-check-input" id="radio2" name="gender" value="female" #n11="ngModel"
+                ngModel>Female
+            </label>
+          </div>
+          <div class="form-check-inline">
+            <label class="form-check-label" for="radio3">
+              <input type="radio" class="form-check-input" name="gender" value="other" id="other" #n12="ngModel"
+                ngModel>Other
+            </label>
+          </div>
+
+          <!-- <div class="form-group mt-2">
+            <label for="x4">Age :</label>
+            <input type="number" placeholder="Enter Your Age" id='x4' class="form-control"
+              [class.is-invalid]="!n7.valid && n7.touched" [class.is-valid]="n7.valid && n7.touched" name="age"
+              #n7="ngModel" ngModel required>
+            <small class="text-danger" [class.d-none]="n7.valid || n7.untouched">age is required</small>
+          </div>
+          <div class="form-group">
+            <label for="x5">Date Of Birth :</label>
+            <input type="date" placeholder="dob" id='x5' class="form-control"
+              [class.is-invalid]="!n8.valid && n8.touched" [class.is-valid]="n8.valid && n8.touched" name="dob"
+              #n8="ngModel" ngModel required>
+            <small class="text-danger" [class.d-none]="n8.valid || n8.untouched">Dob is required</small>
+          </div>
+          <div class="form-group">
+            <label for="x6">Mobile Number :</label>
+            <input type="text" placeholder="Enter Your Mobile Number" id='x6' class="form-control"
+              [class.is-invalid]="!n9.valid && n9.touched" [class.is-valid]="n9.valid && n9.touched"
+              name="mobile_number" #n9="ngModel" ngModel required>
+            <small class="text-danger" [class.d-none]="n9.valid || n9.untouched">mobile number is required</small>
+          </div> -->
+          <div class="text-center mb-0">
+            <button [disabled]="f.form.invalid"class="btn btn-success">SUBMIT</button>
+          </div>
+        </form>
+      </div>
+    </body>
