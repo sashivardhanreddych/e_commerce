@@ -1,1 +1,40 @@
-<p>login works!</p>
+<!-- <p-toast position="top-center" key="toastElement"></p-toast> -->
+<div class="wrapper fadeInDown" style="background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.4)),url(./assets/images/sign.jpg) 65%;">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="./assets/images/slogo.png" id="icon" alt="User Icon" />
+      <span class="brand_name">S-CART</span>
+    </div>
+<!-- ngNativeValidate #ref="ngForm"  (ngSubmit)="onLogin(ref.value)-->
+    <!-- Login Form -->
+    <form  (ngSubmit)="onLogin()">
+      <input
+        type="text"
+        id="id"
+        class="fadeIn second"
+        name="email"
+        placeholder="email"
+        ngModel
+        required
+      />
+      <input
+        type="password"
+        id="password"
+        class="fadeIn third"
+        name="password"
+        placeholder="Password"
+        ngModel
+        required
+      />
+      <input type="submit" class="fadeIn fourth" value="Log In" />
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" (click)="navigateTo()">Forgot Password?</a>
+    </div>
+  </div>
+</div>
