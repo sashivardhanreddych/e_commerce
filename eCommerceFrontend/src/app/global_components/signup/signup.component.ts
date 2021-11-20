@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm }   from '@angular/forms';
+// import { NgForm }   from '@angular/forms';
 
 import { Router } from '@angular/router';
 
@@ -14,9 +14,10 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  onSubmit() {
+  
+  onSubmit(x:any) {
     console.log("signup");
+    alert(x);
     
   }
 }
