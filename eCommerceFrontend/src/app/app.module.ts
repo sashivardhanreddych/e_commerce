@@ -8,6 +8,9 @@ import { SignupComponent } from './global_components/signup/signup.component';
 import { LoginComponent } from './global_components/login/login.component';
 import { ChangepasswordComponent } from './global_components/changepassword/changepassword.component';
 import { ForgotpasswordComponent } from './global_components/forgotpassword/forgotpassword.component';
+import { PipesPipe } from './pipes.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
+import { HeaderComponent } from './user_dashboard/header/header.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,10 @@ import { ForgotpasswordComponent } from './global_components/forgotpassword/forg
     SignupComponent,
     LoginComponent,
     ChangepasswordComponent,
-    ForgotpasswordComponent
+    ForgotpasswordComponent,
+    PipesPipe,
+    FilterPipe,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
