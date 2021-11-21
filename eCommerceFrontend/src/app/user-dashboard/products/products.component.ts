@@ -10,7 +10,7 @@ import { CartService } from '../../services/cart.service';
 export class ProductsComponent implements OnInit {
 
    public productList : any ;
-  public filterCategory : any
+  public filterCategory : any;
   searchKey:string ="";
   constructor(private api : ApiService, private cartService : CartService) { }
 

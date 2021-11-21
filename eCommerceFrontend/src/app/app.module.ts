@@ -10,8 +10,10 @@ import { SignupComponent } from './global_components/signup/signup.component';
 import { LoginComponent } from './global_components/login/login.component';
 import { ChangepasswordComponent } from './global_components/changepassword/changepassword.component';
 import { ForgotpasswordComponent } from './global_components/forgotpassword/forgotpassword.component';
-import { FilterPipe } from './pipes/filter.pipe';
-import { HeaderComponent } from './user-dashboard/header/header.component';
+
+import { UserDashboardModule} from './user-dashboard/user-dashboard.module';
+
+
 
 // Imports from the primeNg
 import { InputTextModule } from 'primeng/inputtext';
@@ -26,8 +28,7 @@ import { DividerModule } from "primeng/divider";
     LoginComponent,
     ChangepasswordComponent,
     ForgotpasswordComponent,
-    FilterPipe,
-    HeaderComponent
+
   ],
   imports: [
     BrowserModule,
@@ -35,6 +36,7 @@ import { DividerModule } from "primeng/divider";
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    UserDashboardModule,
 
     //primeNg modules
     PasswordModule,
