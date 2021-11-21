@@ -7,13 +7,11 @@ import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [
   {
-    // path: 'user/dashboard', component: HeaderComponent,
+    path: 'user/dashboard', component: HeaderComponent,
     children: [
       { path: '', redirectTo: 'products', pathMatch: 'full' },
-
-
       { path: 'products', component: ProductsComponent},
-      {path : 'cart', component: CartComponent}
+      { path : 'cart', component: CartComponent}
     ]
   }
 ];
