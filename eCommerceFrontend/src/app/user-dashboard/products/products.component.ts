@@ -19,7 +19,10 @@ export class ProductsComponent implements OnInit {
   ngOnInit(): void {
 
     /**
-     * used to get the products from the api and categorize the products
+     * used to get the products from the api and categorize the products by using services
+     * 
+     * @params {Object}
+     * @returns {Object}
      */
     this.api.getProduct()
     .subscribe(res=>{
@@ -38,9 +41,18 @@ export class ProductsComponent implements OnInit {
       this.searchKey = val;
     })
   }
+
+  // addtocart is used to add the product into the cart
   addtocart(item: any){
     this.cartService.addtoCart(item);
   }
+
+  /** 
+     * used to filter the items categorize the products by using services
+     * 
+     * @params {Object}
+     * @returns {Object}
+     */
   filter(category:string){
     this.filterCategory = this.productList
     .filter((a:any)=>{

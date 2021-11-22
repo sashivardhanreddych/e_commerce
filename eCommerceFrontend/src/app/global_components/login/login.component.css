@@ -1,40 +1,3 @@
-/* BASIC */
-
-html {
-  background-color: #56baed;
-}
-
-body {
-  font-family: "Poppins", sans-serif;
-  height: 100vh;
-}
-
-
-.brand_name{
-  font-size: 3em;
-  font-style: italic;
-  color: #4ac9f0;
-  padding:0 0 50px 0;
-}
-a {
-  color: #92badd;
-  display: inline-block;
-  text-decoration: none;
-  font-weight: 400;
-}
-
-h2 {
-  text-align: center;
-  font-size: 16px;
-  font-weight: 600;
-  text-transform: uppercase;
-  display: inline-block;
-  margin: 40px 8px 10px 8px;
-  color: #cccccc;
-}
-
-
-
 /* STRUCTURE */
 
 .wrapper {
@@ -44,7 +7,10 @@ h2 {
   justify-content: center;
   width: 100%;
   min-height: 100%;
+  height: 100vh;
+  max-height: 100vh;
   padding: 20px;
+  background: linear-gradient(to left, #7808f0, #06bdf5);
 }
 
 #formContent {
@@ -59,6 +25,7 @@ h2 {
   -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
   box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
   text-align: center;
+  box-shadow: -3px -3px 7px #ffffff73, 2px 2px 5px rgba(94, 104, 121, 0.288);
 }
 
 #formFooter {
@@ -70,30 +37,31 @@ h2 {
   border-radius: 0 0 10px 10px;
 }
 
+/* BASIC */
 
-
-/* TABS */
-
-h2.inactive {
-  color: #cccccc;
+.brand_name {
+  font-size: 3em;
+  font-style: italic;
+  color: #4ac9f0;
+  padding: 0 0 50px 0;
 }
-
-h2.active {
-  color: #0d0d0d;
-  border-bottom: 2px solid #5fbae9;
+a {
+  color: #92badd;
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 400;
 }
-
 
 
 /* FORM TYPOGRAPHY*/
 
-input[type=button],
-input[type=submit],
-input[type=reset] {
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
   background-color: #56baed;
   border: none;
   color: white;
-  padding: 15px 80px;
+  padding: 15px 80px 5px 80px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -111,15 +79,15 @@ input[type=reset] {
   transition: all 0.3s ease-in-out;
 }
 
-input[type=button]:hover,
-input[type=submit]:hover,
-input[type=reset]:hover {
+input[type="button"]:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover {
   background-color: #39ace7;
 }
 
-input[type=button]:active,
-input[type=submit]:active,
-input[type=reset]:active {
+input[type="button"]:active,
+input[type="submit"]:active,
+input[type="reset"]:active {
   -moz-transform: scale(0.95);
   -webkit-transform: scale(0.95);
   -o-transform: scale(0.95);
@@ -127,8 +95,8 @@ input[type=reset]:active {
   transform: scale(0.95);
 }
 
-input[type=text],
-input[type=password] {
+input[type="number"],
+input[type="password"] {
   background-color: #f6f6f6;
   border: none;
   color: #0d0d0d;
@@ -149,16 +117,24 @@ input[type=password] {
   border-radius: 5px 5px 5px 5px;
 }
 
-input[type=text]:focus {
+
+/* input[type="number"]:focus, 
+input[type="password"]:focus {
   background-color: #fff;
   border-bottom: 2px solid #5fbae9;
-}
+} */
 
-input[type=text]:placeholder {
+input[type=]:placeholder {
   color: #cccccc;
 }
 
-
+.error_container, .label_container {
+  float: left;
+  margin-left: 40px;
+}
+.submit-container{
+  padding:10px 0 0 0;
+}
 
 /* ANIMATIONS */
 
@@ -290,34 +266,31 @@ input[type=text]:placeholder {
   width: 100%;
 }
 
-
-
 /* OTHERS */
 
 *:focus {
   outline: none;
 }
 
-#icon {
+/* #icon {
   width: 40%;
-}
+} */
 
 .radio-inline {
   padding: 2%;
-
 }
 
-.first{
-  /* height:150px; */
-  padding:10% 0% 10% 4%;
-  width:100%;
-  float:center;
-  text-align:center;
-  line-height:60px;
+.first {
+  height: 80px;
+  padding: 2% 0% 10% 4%;
+  width: 100%;
+  float: center;
+  text-align: center;
+  margin-bottom:5px;
 }
 
-#formContent{
-  margin-top:50px;
+#formContent {
+  margin-top: 50px;
 }
 .bg-dark1 {
   background-color: #fff !important;

@@ -46,6 +46,8 @@ import { DividerModule } from "primeng/divider";
     UserDashboardModule,
 
     //primeNg modules
+    InputTextModule,
+    ToastModule,
     PasswordModule,
     DividerModule
   ],

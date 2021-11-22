@@ -8,20 +8,16 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProductsComponent } from './products/products.component';
 import { CartComponent } from './cart/cart.component';
 
-// Routes Array to navigate from one page to another page.
+// Routes Array to navigate from one page to another page and children array of routes
 const routes: Routes = [
-  // {
-  //   path: 'user/dashboard', component: HeaderComponent,
-  //   children: [
-  //     { path: '', redirectTo: 'products', pathMatch: 'full' },
-  //     { path: 'products', component: ProductsComponent},
-  //     { path : 'cart', component: CartComponent}
-  //   ]
-  // }
-  { path : '', redirectTo: 'dashboard', pathMatch: 'full'},
-  { path : 'dashboard', component: DashboardComponent},
-  { path: 'products', component: ProductsComponent},
-  { path : 'cart', component: CartComponent}
+  { path: '', redirectTo: 'user/dashboard', pathMatch: 'full' },
+  {
+    path: 'user/dashboard', component: DashboardComponent,
+    children: [ 
+      { path: 'products', component: ProductsComponent},
+      { path : 'cart', component: CartComponent}
+    ]
+  }
 
 ];
 

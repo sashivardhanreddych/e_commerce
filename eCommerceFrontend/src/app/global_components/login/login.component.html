@@ -1,40 +1,94 @@
 <!-- <p-toast position="top-center" key="toastElement"></p-toast> -->
-<div class="wrapper fadeInDown" style="background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.4)),url(./assets/images/sign.jpg) 65%;">
+<div class="wrapper fadeInDown">
   <div id="formContent">
-    <!-- Tabs Titles -->
-
     <!-- Icon -->
     <div class="fadeIn first">
-      <img src="./assets/images/slogo.png" id="icon" alt="User Icon" />
+      <!-- <img src="./assets/images/slogo.png" id="icon" alt="User Icon" /> -->
       <span class="brand_name">S-CART</span>
     </div>
-<!-- ngNativeValidate #ref="ngForm"  (ngSubmit)="onLogin(ref.value)-->
+
     <!-- Login Form -->
-    <form  (ngSubmit)="onLogin()">
+
+    <form [formGroup]="myGroup" (ngSubmit)="onLogin()">
+      <div class="form-group">
+        <label class="label_container">Phone :</label>
+        <input
+          type="number"
+          class="form-control fadeIn second"
+          id="mobileNumber"
+          placeholder="Enter Your Mobile Number"
+          formControlName="mobileNumber"
+        />
+
+        <div
+          *ngIf="f.mobileNumber.touched && f.mobileNumber.invalid"
+          class="text-danger error_container"
+        >
+          <div *ngIf="f.mobileNumber.errors?.required">
+            Mobile Number is required.
+          </div>
+          <div *ngIf="f.mobileNumber.errors?.pattern">
+            Please, Enter 10 digit Mobile Number.
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="form-group">
+      <label for="email">Email :</label>
       <input
-        type="text"
-        id="id"
-        class="fadeIn second"
+        type="email"
+        placeholder="Enter Your Email"
+        id="email"
+        class="form-control"
         name="email"
-        placeholder="email"
+        [class.is-invalid]="!email.valid && email.touched"
+        [class.is-valid]="email.valid && email.touched"
+        #email="ngModel"
         ngModel
         required
       />
-      <input
-        type="password"
-        id="password"
-        class="fadeIn third"
-        name="password"
-        placeholder="Password"
-        ngModel
-        required
-      />
-      <input type="submit" class="fadeIn fourth" value="Log In" />
+      <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is required</small>
+    </div> -->
+
+      <div class="form-group mt-4">
+        <label class="label_container">Password :</label>
+        <input
+          type="password"
+          class="form-control fadeIn third"
+          id="password"
+          placeholder="Enter Your Password"
+          formControlName="password"
+        />
+
+        <div
+          *ngIf="f.password.touched && f.password.invalid"
+          class="text-danger error_container"
+        >
+          <div *ngIf="f.password.errors?.required">Password is required.</div>
+          <div *ngIf="f.password.errors?.pattern">
+            Enter Your Valid Password.
+          </div>
+        </div>
+      </div>
+      <div class="submit-container">
+        <input
+          type="submit"
+          [disabled]="!myGroup.valid"
+          class="fadeIn fourth"
+          value="Log In"
+        />
+      </div>
+      <div class="signup_container mb-3">
+        <span>Already Have an Account? </span>
+        <a routerLink="/signup">Sign Up</a> 
+      </div>
     </form>
 
-    <!-- Remind Passowrd -->
+
     <div id="formFooter">
-      <a class="underlineHover" (click)="navigateTo()">Forgot Password?</a>
+      <a routerLink="/forgotpassword" class="underlineHover"
+        >Forgot Password?</a
+      >
     </div>
   </div>
 </div>

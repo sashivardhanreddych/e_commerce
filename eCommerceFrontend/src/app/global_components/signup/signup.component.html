@@ -1,15 +1,16 @@
 <body>
+  <!-- <div class="wrapper fadeInDown"> -->
   <div class="jumbotron m-5">
   <form #userdata="ngForm" (ngSubmit)="onSubmit(userdata.value)">
     <div class="text-center mt-0 mb-2">
-      <span>SIGNUP FORM</span>
+      <span>SIGNUP</span>
     </div>
     <div class="form-group">
-      <label for="username">Username :</label>
+      <label for="email">Email :</label>
       <input
-        type="text"
+        type="email"
         placeholder="Enter Your Email"
-        id="username"
+        id="email"
         class="form-control"
         name="email"
         [class.is-invalid]="!email.valid && email.touched"
@@ -18,9 +19,7 @@
         ngModel
         required
       />
-      <small class="text-danger" [class.d-none]="email.valid || email.untouched"
-        >Email is required</small
-      >
+      <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is required</small>
     </div>
     <div class="form-group">
       <label for="fullname">Full Name :</label>
@@ -41,35 +40,12 @@
       >
     </div>
     <div class="form-group">
-        <label for="password">Enter Password:</label>
-        <input type="password" placeholder="password" id='password' class="form-control"  [class.is-invalid]="!password.valid && password.touched"
+        <label for="password">Password:</label>
+        <input type="password" placeholder="Enter Your Password" id='password' class="form-control"  [class.is-invalid]="!password.valid && password.touched"
           [class.is-valid]="password.valid && password.touched" name="password" #password="ngModel" ngModel required>
         <small class="text-danger" [class.d-none]="password.valid ||password.untouched">password is required</small>
     </div>
-    <div class="form-group">
-      <label for="pwd">Password :</label><br />
-      <p-password
-        [toggleMask]="true"
-        id="pwd"
-        name="password"
-        #password="ngModel"
-        ngModel
-      >
-        <ng-template pTemplate="header">
-          <h6>Pick a password</h6>
-        </ng-template>
-        <ng-template pTemplate="footer">
-          <p-divider></p-divider>
-          <p class="p-mt-2">Suggestions</p>
-          <ul class="p-pl-2 p-ml-2 p-mt-0" style="line-height: 1.5">
-            <li>At least one lowercase</li>
-            <li>At least one uppercase</li>
-            <li>At least one numeric</li>
-            <li>Minimum 8 characters</li>
-          </ul>
-        </ng-template>
-      </p-password>
-    </div>
+    
     <label for="gender">Gender :</label>
     <br />
     <div class="form-check-inline">
@@ -139,5 +115,6 @@
       </button>
     </div>
   </form>
+<!-- </div> -->
 </div>
 </body>
