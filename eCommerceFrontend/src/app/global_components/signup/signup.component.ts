@@ -1,3 +1,4 @@
+// Imports from angular dependencies
 import { Component, OnInit } from '@angular/core';
 // import { NgForm }   from '@angular/forms';
 
@@ -15,6 +16,11 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
   }
   
+  /**
+   * Used to send the data when submit button is clicked 
+   * @param x userdata
+   * @returns String
+   */
   onSubmit(x:any) {
     console.log("signup");
     alert(x);
