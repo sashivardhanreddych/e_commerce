@@ -9,20 +9,17 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 })
 export class LoginComponent{
 
+  // myGroup form variable to create new FormGroup
   myGroup: FormGroup = new FormGroup({});
 
   constructor(private router: Router,private fb: FormBuilder) { 
+
+    // checking the validations and error handling for the form fields
      this.myGroup = fb.group({
        mobileNumber: [
          '',
          [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')],
        ],
-
-       // password: [ '', Validators.compose([ Validators.required, CustomValidators.patternValidator(/\d/, { hasNumber: true }),
-       //    CustomValidators.patternValidator(/[A-Z]/, { hasCapitalCase: true }),
-       //    CustomValidators.patternValidator(/[a-z]/, { hasSmallCase: true }),
-       //    CustomValidators.patternValidator(/[ [!@#$%^&*()_+-=[]{};':"|,.<>/?]/](<mailto:!@#$%^&*()_+-=[]{};':"|,.<>/?]/>), { hasSpecialCharacters: true }),
-       //    Validators.minLength(8)])
 
        password: [
          '',
@@ -35,15 +32,14 @@ export class LoginComponent{
        ],
      });
   }
+
+    // Using this to get the form controls and used in the template view
     get f(){  
       return this.myGroup.controls;  
    }  
+      // Used to show the object in the console when login the user
     onLogin(){  
       console.log(this.myGroup.value);  
     }  
 
   }  
-    // navigateTo() {
-    //   this.router.navigateByUrl('/forgotpassword');
-    // }
-
