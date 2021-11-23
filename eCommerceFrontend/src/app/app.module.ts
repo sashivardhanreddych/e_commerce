@@ -5,6 +5,8 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+// import { Routes, RouterModule } from '@angular/router';
 
 import { UserDashboardModule} from './user-dashboard/user-dashboard.module';
 
@@ -16,6 +18,8 @@ import { ChangepasswordComponent } from './global_components/changepassword/chan
 import { ForgotpasswordComponent } from './global_components/forgotpassword/forgotpassword.component';
 
 
+// imports modules from angular material
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 
 
@@ -33,10 +37,9 @@ import { DividerModule } from "primeng/divider";
     LoginComponent,
     ChangepasswordComponent,
     ForgotpasswordComponent,
-
   ],
   // Imported Internal Modules
-  imports: [   
+  imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
@@ -45,13 +48,17 @@ import { DividerModule } from "primeng/divider";
     HttpClientModule,
     UserDashboardModule,
 
+    // Angular material
+    MatSidenavModule,
+
     //primeNg modules
     InputTextModule,
     ToastModule,
     PasswordModule,
-    DividerModule
+    DividerModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -8,14 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class ChangepasswordComponent implements OnInit {
 
   constructor() { }
-  // newPassword: string = null;
-  // confirmPassword: string = null;
+  // newPassword: string = "";
+  // confirmPassword: string = "";
   ngOnInit(): void {
   }
 
-  onSubmit() {
-    console.log("newPassword");
-  }
+  // onSubmit() {
+  //   console.log("newPassword");
+  // }
 
 
 }

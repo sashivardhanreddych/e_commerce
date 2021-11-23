@@ -12,6 +12,18 @@ import { CartComponent } from './cart/cart.component';
 
 import { FilterPipe } from '../pipes/filter.pipe';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { NavbarComponent } from './navbar/navbar.component';
+
+
+// imports modules from angular material
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
+
 
 
 @NgModule({
@@ -21,13 +33,21 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     ProductsComponent,
     CartComponent,
     FilterPipe,
-    DashboardComponent
+    DashboardComponent,
+    NavbarComponent,
   ],
   // Imported modules
   imports: [
     CommonModule,
     UserDashboardRoutingModule,
-    FormsModule
-  ]
+    FormsModule,
+
+    // angular material modules
+    MatProgressSpinnerModule,
+    MatSidenavModule,
+    MatListModule,
+    MatIconModule,
+    MatToolbarModule
+  ],
 })
-export class UserDashboardModule { }
+export class UserDashboardModule {}
