@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 //imports Components from internal dependencies
+import { PagenotfoundComponent } from '../global_components/pagenotfound/pagenotfound.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProductsComponent } from './products/products.component';
 import { CartComponent } from './cart/cart.component';
@@ -16,7 +17,8 @@ const routes: Routes = [
       { path: 'products', component: ProductsComponent},
       { path : 'cart', component: CartComponent}
     ]
-  }
+  },
+  {path: '**', component: PagenotfoundComponent}
 
 ];
 
