@@ -6,14 +6,16 @@ import { LoginComponent } from './global_components/login/login.component';
 import { SignupComponent } from './global_components/signup/signup.component';
 import { ForgotpasswordComponent } from './global_components/forgotpassword/forgotpassword.component';
 import { ChangepasswordComponent } from './global_components/changepassword/changepassword.component';
+import { PagenotfoundComponent } from './global_components/pagenotfound/pagenotfound.component';
 
 
 const routes: Routes = [
-  {path : '', redirectTo : 'login', pathMatch : 'full'},
-  {path : 'login', component: LoginComponent},
-  {path : 'signup', component: SignupComponent},
-  {path : 'forgotpassword', component: ForgotpasswordComponent},
-  {path : 'changepassword', component: ChangepasswordComponent},
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'forgotpassword', component: ForgotpasswordComponent },
+  { path: 'changepassword', component: ChangepasswordComponent },
+  { path: '**', component: PagenotfoundComponent },
 ];
 
 @NgModule({

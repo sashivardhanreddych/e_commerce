@@ -6,24 +6,28 @@
         <span class="header_text">SIGNUP</span>
       </div>
       <div class="form-group">
-        <label for="email">Email :</label>
+        <label for="phone">Phone :</label>
         <input
-          type="email"
-          placeholder="Enter Your Email"
-          id="email"
+          type="number"
+          placeholder="Enter Your Mobile Number"
+          id="phone"
           class="form-control"
-          name="email"
-          [class.is-invalid]="!email.valid && email.touched"
-          [class.is-valid]="email.valid && email.touched"
-          #email="ngModel"
+          name="phone"
+          [class.is-invalid]="!phone.valid &&phone.touched"
+          [class.is-valid]="phone.valid && phone.touched"
+          pattern = "^((\\+91-?)|0)?[0-9]{10}$"
+          #phone="ngModel"
           ngModel
           required
         />
         <small
           class="text-danger"
-          [class.d-none]="email.valid || email.untouched"
-          >Email is required</small
+          [class.d-none]="phone.valid || phone.untouched"
+          >Phone is required</small
         >
+        <small class="text-danger" [class.d-none]="!phone.valid">
+          Please, Enter a valid Phone Number
+        </small>
       </div>
       <div class="form-group">
         <label for="fullname">Full Name :</label>

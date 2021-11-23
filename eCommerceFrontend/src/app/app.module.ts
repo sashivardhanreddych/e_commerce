@@ -8,15 +8,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 // import { Routes, RouterModule } from '@angular/router';
 
-import { UserDashboardModule} from './user-dashboard/user-dashboard.module';
-
-// Imports components from Internal dependencies
-import { AppComponent } from './app.component';
-import { SignupComponent } from './global_components/signup/signup.component';
-import { LoginComponent } from './global_components/login/login.component';
-import { ChangepasswordComponent } from './global_components/changepassword/changepassword.component';
-import { ForgotpasswordComponent } from './global_components/forgotpassword/forgotpassword.component';
-
 
 // imports modules from angular material
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -28,7 +19,20 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ToastModule } from 'primeng/toast';
 import { PasswordModule } from 'primeng/password';
 import { DividerModule } from "primeng/divider";
+
+// imports Modules from internal dependencies
+import { UserDashboardModule} from './user-dashboard/user-dashboard.module';
+
+// Imports components from Internal dependencies
+import { AppComponent } from './app.component';
+import { SignupComponent } from './global_components/signup/signup.component';
+import { LoginComponent } from './global_components/login/login.component';
+import { ChangepasswordComponent } from './global_components/changepassword/changepassword.component';
+import { ForgotpasswordComponent } from './global_components/forgotpassword/forgotpassword.component';
+
 import { PagenotfoundComponent } from './global_components/pagenotfound/pagenotfound.component';
+
+
 
 @NgModule({
   // Imported components
