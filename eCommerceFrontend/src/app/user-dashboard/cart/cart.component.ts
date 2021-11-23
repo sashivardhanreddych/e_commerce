@@ -41,6 +41,7 @@ export class CartComponent implements OnInit {
 
   // Used to navigate user dashboard
   navigateToHome(){
-    this.router.navigateByUrl('user/dashboard/products')
+    console.log("my name is sashi");
+    // this.router.navigateByUrl('/products');
   }
 }

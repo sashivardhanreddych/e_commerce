@@ -22,12 +22,12 @@
 
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    [mode]="(isHandset$ | async) ? 'side' : 'push'" [opened]="(isHandset$ | async) === false">
 
 
     <mat-nav-list>
       <!-- <a mat-list-item routerLink="home"><mat-icon>home</mat-icon>Dashboard</a> -->
-      <a mat-list-item routerLink="feed" routerLinkActive="active">
+      <a mat-list-item routerLink="products" routerLinkActive="active">
         <mat-icon class="mr-2">rss_feed</mat-icon>Products
       </a>
       <a mat-list-item routerLink="userPost" routerLinkActive="active">
@@ -41,7 +41,7 @@
       <a mat-list-item routerLink="myactivity" routerLinkActive="active">
         <mat-icon class="mr-2">update</mat-icon>My Activity
       </a>
-      <a mat-list-item routerLink="saveditems" routerLinkActive="active">
+      <a mat-list-item routerLink="cart" routerLinkActive="active">
         <mat-icon class="mr-2">save</mat-icon>My Cart
       </a>
 
@@ -57,12 +57,12 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+    <mat-toolbar class="bg-primary">
+      <button type="button" class="hamburger_menu" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <h5>S-Cart</h5>
+      <h5 class="text-">S-Cart</h5>
       <input class="form-control col-sm-2 me-3 search-bar" type="search" placeholder="Search" aria-label="Search">
     </mat-toolbar>
     <!-- Add Content Here -->
@@ -75,6 +75,3 @@
   <mat-spinner style="top:50%;left:50%;">loading...</mat-spinner>
 </div>
 
-<!-- <span class="material-icons-outlined">
-post_add
-</span> -->

@@ -28,6 +28,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ToastModule } from 'primeng/toast';
 import { PasswordModule } from 'primeng/password';
 import { DividerModule } from "primeng/divider";
+import { PagenotfoundComponent } from './global_components/pagenotfound/pagenotfound.component';
 
 @NgModule({
   // Imported components
@@ -37,6 +38,7 @@ import { DividerModule } from "primeng/divider";
     LoginComponent,
     ChangepasswordComponent,
     ForgotpasswordComponent,
+    PagenotfoundComponent,
   ],
   // Imported Internal Modules
   imports: [

@@ -4,7 +4,7 @@
 
 .sidenav {
   width: 200px;
-  background-color: #0776f5;
+  background-color: #0a65cc;
 }
 
 .sidenav .mat-toolbar {
@@ -36,7 +36,7 @@
 
 .mat-toolbar {
   color: white;
-
+  padding: 8px 0px 8px 10px;
 }
 
 h3{
@@ -45,10 +45,9 @@ h3{
 }
 
 .active{
-   background-color:rgb(59, 7, 107);
-   /* background-color:white;color:black;
+   background-color:rgb(90, 168, 231);
    border:1px solid white;
-   border-radius:4px; */
+   border-radius:4px; 
   font-weight:bold;
 
 }
@@ -63,6 +62,10 @@ h3{
   opacity: 0.7;
   z-index: 99;
 };
+
+.hamburger_menu{
+  float:right;
+}
 
 
 mat-toolbar,h5{

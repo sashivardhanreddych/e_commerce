@@ -10,9 +10,10 @@ import { HeaderComponent } from './header/header.component';
 import { ProductsComponent } from './products/products.component';
 import { CartComponent } from './cart/cart.component';
 
-import { FilterPipe } from '../pipes/filter.pipe';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavbarComponent } from './navbar/navbar.component';
+
+import { FilterPipe } from '../pipes/filter.pipe';
 
 
 // imports modules from angular material
@@ -32,9 +33,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     HeaderComponent,
     ProductsComponent,
     CartComponent,
-    FilterPipe,
     DashboardComponent,
     NavbarComponent,
+    FilterPipe
   ],
   // Imported modules
   imports: [
@@ -47,7 +48,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatSidenavModule,
     MatListModule,
     MatIconModule,
-    MatToolbarModule
+    MatToolbarModule,
   ],
 })
 export class UserDashboardModule {}
