@@ -13,6 +13,7 @@ import { ErrorInterceptor } from './interceptors/error.interceptor';
 
 // imports modules from angular material
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 
@@ -33,6 +34,7 @@ import { ChangepasswordComponent } from './global_components/changepassword/chan
 import { ForgotpasswordComponent } from './global_components/forgotpassword/forgotpassword.component';
 
 import { PagenotfoundComponent } from './global_components/pagenotfound/pagenotfound.component';
+import { NotificationsComponent } from './global_components/notifications/notifications.component';
 
 
 
@@ -45,6 +47,7 @@ import { PagenotfoundComponent } from './global_components/pagenotfound/pagenotf
     ChangepasswordComponent,
     ForgotpasswordComponent,
     PagenotfoundComponent,
+    NotificationsComponent
   ],
   // Imported Internal Modules
   imports: [
@@ -61,6 +64,7 @@ import { PagenotfoundComponent } from './global_components/pagenotfound/pagenotf
 
     // Angular material
     MatSidenavModule,
+    MatSnackBarModule,
 
     //primeNg modules
     InputTextModule,
