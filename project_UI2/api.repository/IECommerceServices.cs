@@ -12,6 +12,8 @@ namespace api.repository
         bool Jewellary(string name);
         bool  gadget(string name);
         bool Dresess(string name);
+        bool EditProduct(EditProduct editProduct);
+        string ForgotPassword(int phone);
 
     }
 }
