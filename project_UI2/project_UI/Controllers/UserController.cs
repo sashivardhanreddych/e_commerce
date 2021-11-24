@@ -63,7 +63,7 @@ namespace project_UI.Controllers
         }
 
 
-        [HttpGet, Route("api/products")]
+        [HttpGet, Route("api/Allproducts")]
         public bool GetProduct(products _product)
         {
             if (_service.GetProduct(_product))
