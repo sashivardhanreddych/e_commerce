@@ -4,8 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { ErrorInterceptor } from './interceptors/error.interceptor';
 // import { Routes, RouterModule } from '@angular/router';
 
 
@@ -51,8 +53,11 @@ import { PagenotfoundComponent } from './global_components/pagenotfound/pagenotf
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
+    // Internal dependencies
     UserDashboardModule,
+
+    // other modules
+    HttpClientModule,
 
     // Angular material
     MatSidenavModule,
@@ -63,7 +68,10 @@ import { PagenotfoundComponent } from './global_components/pagenotfound/pagenotf
     PasswordModule,
     DividerModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],
 })
