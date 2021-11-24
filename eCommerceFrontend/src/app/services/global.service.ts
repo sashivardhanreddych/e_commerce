@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
-// import { environment } from 'src/environments/environment';
+import { environment } from './../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -15,23 +15,25 @@ export class GlobalService {
   resetUrl = this.apiBaseUrl + 'generic/resetPassword';
   forgotUrl = this.apiBaseUrl + 'generic/forgotPassword';
   loginUrl = this.apiBaseUrl + 'generic/login';
-  registerUrl = this.apiBaseUrl + 'generic/signup';
+  registerUrl = this.apiBaseUrl + 'api/signup';
   presentUser: any;
-
 
   constructor(private http: HttpClient, private router: Router) {}
 
-
+  // Declaring isLoggedin and creating a subject
   isLoggedin = false;
   public loggedInSubject = new Subject<boolean>();
+
+  // setLoggedin used to tell a user login 
   setLoggedin(value: boolean) {
     this.loggedInSubject.next(value);
   }
-  registerUser(userObj) {
+  // register user to send the data to server
+  registerUser(userObj:any) {
     return this.http.post<any>(this.registerUrl, userObj);
   }
 
-  loginUser(userObj) {
+  loginUser(userObj:any) {
     return this.http.post<any>(this.loginUrl, userObj);
   }
 
@@ -44,15 +46,15 @@ export class GlobalService {
   getToken(token: string) {
     return localStorage.getItem('SCART');
   }
-  onForgot(userObj) {
+  onForgot(userObj:any) {
     return this.http.post<any>(this.forgotUrl, userObj);
   }
-  onReset(userObj, token: string) {
+  onReset(userObj:any, token: string) {
     this.resetUrl = this.resetUrl + '/' + token;
     console.log(this.resetUrl);
     return this.http.patch<any>(this.resetUrl, userObj);
   }
-  onChangePassword(userObj) {
+  onChangePassword(userObj:any) {
     return this.http.patch<any>(this.changePasswordUrl, userObj);
   }
   isAuthenticated(): boolean {
