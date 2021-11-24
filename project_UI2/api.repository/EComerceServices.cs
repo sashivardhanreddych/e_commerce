@@ -22,7 +22,7 @@ namespace api.repository
 
 
         //UserRegistration() is used to register the user details
-        
+
         public bool UserRegistration(Registration reg)
         {
 
@@ -102,7 +102,7 @@ namespace api.repository
             bool isSuccess = false;
             try
             {
-                
+
                 _cmd = new SqlCommand($"UPDATE userDB SET password= '" + _resetPassword.password + "' WHERE  phone='" + _resetPassword.phone + "'", _connectionstring);
                 {
                     if (_connectionstring.State == System.Data.ConnectionState.Closed)
@@ -125,24 +125,48 @@ namespace api.repository
 
             return isSuccess;
         }
+        public string ForgotPassword(int phone)
+        {
+            string _password = "";
+            try
+            {
+                _cmd = new SqlCommand("select password from userDB where phone = '" + phone + "' ", _connectionstring);
+                {
+                    if (_connectionstring.State == System.Data.ConnectionState.Closed)
+                        _connectionstring.Open();
+                    _password = Convert.ToString(_cmd.ExecuteScalar());
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new UserException(ex.Message, ex);
+            }
+            finally
+            {
+                if (_connectionstring.State == System.Data.ConnectionState.Open)
+                    _connectionstring.Close();
+            }
+
+            return _password;
+        }
         //GetProduct() is display all product data from database
         public bool GetProduct(products _product)
         {
             bool isSuccess = false;
             try
             {
-                _cmd = new SqlCommand("SELECT * FROM productDB where id='"+_product.id+"','"+_product.name+"','"+_product.image+"','"+_product.description+"','"+_product.price+"' ", _connectionstring);
+                _cmd = new SqlCommand("SELECT * FROM productDB  ", _connectionstring);
                 {
                     if (_connectionstring.State == System.Data.ConnectionState.Closed)
                         _connectionstring.Open();
                     SqlDataReader Reader = _cmd.ExecuteReader();
-                   
-                            isSuccess = true;
-                        }
-                    }
 
-                
-            
+                    isSuccess = true;
+                }
+            }
+
+
+
             catch (Exception ex)
             {
                 throw new UserException(ex.Message, ex);
@@ -156,12 +180,12 @@ namespace api.repository
             return isSuccess;
         }
         //Jewellary() is display all jewellary details from database
-        public bool Jewellary(string  name)
+        public bool Jewellary(string name)
         {
             bool isSuccess = false;
             try
             {
-                _cmd = new SqlCommand("SELECT * FROM productDB where name='" + name + "' ", _connectionstring);
+                _cmd = new SqlCommand("SELECT * FROM productDB where ProductName='" + name + "' ", _connectionstring);
                 {
                     if (_connectionstring.State == System.Data.ConnectionState.Closed)
                         _connectionstring.Open();
@@ -187,41 +211,11 @@ namespace api.repository
         }
         //Gadget() is display gadget all details from database
         public bool gadget(string name)
-    {
-        bool isSuccess = false;
-        try
-        {
-            _cmd = new SqlCommand("SELECT * FROM productDB where name='" + name + "' ", _connectionstring);
-            {
-                if (_connectionstring.State == System.Data.ConnectionState.Closed)
-                    _connectionstring.Open();
-                SqlDataReader Reader = _cmd.ExecuteReader();
-
-                isSuccess = true;
-            }
-        }
-
-
-
-        catch (Exception ex)
-        {
-            throw new UserException(ex.Message, ex);
-        }
-        finally
-        {
-            if (_connectionstring.State == System.Data.ConnectionState.Open)
-                _connectionstring.Close();
-        }
-
-        return isSuccess;
-    }
-        //Dresess() is display all dresess details from database
-        public bool Dresess(string name)
         {
             bool isSuccess = false;
             try
             {
-                _cmd = new SqlCommand("SELECT * FROM productDB where name='" + name + "' ", _connectionstring);
+                _cmd = new SqlCommand("SELECT * FROM productDB where ProductName='" + name + "' ", _connectionstring);
                 {
                     if (_connectionstring.State == System.Data.ConnectionState.Closed)
                         _connectionstring.Open();
@@ -245,8 +239,70 @@ namespace api.repository
 
             return isSuccess;
         }
+        //Dresess() is display all dresess details from database
+        public bool Dresess(string name)
+        {
+            bool isSuccess = false;
+            try
+            {
+                _cmd = new SqlCommand("SELECT * FROM productDB where ProductName='" + name + "' ", _connectionstring);
+                {
+                    if (_connectionstring.State == System.Data.ConnectionState.Closed)
+                        _connectionstring.Open();
+                    SqlDataReader Reader = _cmd.ExecuteReader();
+
+                    isSuccess = true;
+                }
+            }
+
+
+
+            catch (Exception ex)
+            {
+                throw new UserException(ex.Message, ex);
+            }
+            finally
+            {
+                if (_connectionstring.State == System.Data.ConnectionState.Open)
+                    _connectionstring.Close();
+            }
+
+            return isSuccess;
+        }
+        //EditProduct() is Edit all products details in database
+        public bool EditProduct(EditProduct editProduct)
+        {
+            bool isSuccess = false;
+            try
+            {
+
+                _cmd = new SqlCommand($"UPDATE productDB SET ProductDescription= '" + editProduct.description + "',ProductPrice='" + editProduct.price + "'WHERE id='" + editProduct.id + "'", _connectionstring);
+                {
+                    if (_connectionstring.State == System.Data.ConnectionState.Closed)
+                        _connectionstring.Open();
+
+                    _cmd.ExecuteNonQuery();
+
+                    isSuccess = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new UserException(ex.Message, ex);
+            }
+            finally
+            {
+                if (_connectionstring.State == System.Data.ConnectionState.Open)
+                    _connectionstring.Close();
+            }
+
+            return isSuccess;
+        }
+
+    
     }
 }
+
 
 
 

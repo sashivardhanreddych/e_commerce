@@ -42,21 +42,6 @@ namespace project_UI.Controllers
                 return false;
             }
         }
-        
-        
-        [HttpGet, Route("api/products")]
-        public bool GetProduct(products _product)
-        {
-            if (_service.GetProduct(_product))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-
-        }
         [HttpPatch, Route("api/users/resetpassword")]
         public bool ResetPassword(resetpassword _resetPassword)
         {
@@ -70,6 +55,28 @@ namespace project_UI.Controllers
                 return false;
             }
         }
+        [HttpGet, Route("api/users/ForgotPssword")]
+        public string ForgotPassword(int phone)
+        {
+
+            return _service.ForgotPassword(phone);
+        }
+
+
+        [HttpGet, Route("api/products")]
+        public bool GetProduct(products _product)
+        {
+            if (_service.GetProduct(_product))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+        
         [HttpGet, Route("api/products/jewelary{name}")]
         public bool Jewellary(string name)
         {
@@ -108,6 +115,19 @@ namespace project_UI.Controllers
                 return false;
             }
 
+        }
+        [HttpPatch, Route("api/Product/editproduct")]
+        public bool EditProduct(EditProduct editProduct)
+        {
+
+            if (_service.EditProduct(editProduct))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
     }

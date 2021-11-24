@@ -12,4 +12,10 @@ namespace api.model
       
         public int phone { get; set; }
     }
+    public class ForgotPassword
+    {
+        public string password { get; set; }
+
+        public int phone { get; set; }
+    }
 }
