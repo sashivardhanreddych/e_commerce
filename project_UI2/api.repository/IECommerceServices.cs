@@ -14,7 +14,7 @@ namespace api.repository
         bool Dresess(string name);
         bool EditProduct(EditProduct editProduct);
         string ForgotPassword(int phone);
-        
+        bool DeleteUserAcount(int id);
 
     }
 }

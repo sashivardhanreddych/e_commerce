@@ -129,6 +129,19 @@ namespace project_UI.Controllers
                 return false;
             }
         }
+        [HttpDelete, Route("api/users/Delete")]
+        public bool DeleteUserAcount(int deleteUserAcountId)
+        {
+
+            if (_service.DeleteUserAcount(deleteUserAcountId))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
     }
 }
