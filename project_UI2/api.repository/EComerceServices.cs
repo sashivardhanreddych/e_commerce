@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using api.model;
 using api.repository;
 using api.model.Exceptions;
+using System.IO;
 
 namespace api.repository
 {
@@ -299,7 +300,38 @@ namespace api.repository
             return isSuccess;
         }
 
-    
+        //DeleteUserAcount() is delete all user details in database
+        public bool DeleteUserAcount(int id)
+        {
+            bool isSuccess = false;
+            try
+            {
+
+                _cmd = new SqlCommand($"DELETE from userDB WHERE id='"+id+"'", _connectionstring);
+                {
+                    if (_connectionstring.State == System.Data.ConnectionState.Closed)
+                        _connectionstring.Open();
+
+                    _cmd.ExecuteNonQuery();
+
+                    isSuccess = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new UserException(ex.Message, ex);
+            }
+            finally
+            {
+                if (_connectionstring.State == System.Data.ConnectionState.Open)
+                    _connectionstring.Close();
+            }
+
+            return isSuccess;
+        }
+
+
+
     }
 }
 

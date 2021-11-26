@@ -63,7 +63,7 @@ namespace project_UI.Controllers
         }
 
 
-        [HttpGet, Route("api/products")]
+        [HttpGet, Route("api/Allproducts")]
         public bool GetProduct(products _product)
         {
             if (_service.GetProduct(_product))
@@ -121,6 +121,19 @@ namespace project_UI.Controllers
         {
 
             if (_service.EditProduct(editProduct))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        [HttpDelete, Route("api/users/Delete")]
+        public bool DeleteUserAcount(int deleteUserAcountId)
+        {
+
+            if (_service.DeleteUserAcount(deleteUserAcountId))
             {
                 return true;
             }
