@@ -15,19 +15,27 @@
           name="phone"
           [class.is-invalid]="!phone.valid &&phone.touched"
           [class.is-valid]="phone.valid && phone.touched"
-          pattern = "^((\\+91-?)|0)?[0-9]{10}$"
+          
+          pattern = "^[0-9]{10}$"
           #phone="ngModel"
           ngModel
           required
         />
-        <small
+
+        <!-- <small
           class="text-danger"
-          [class.d-none]="phone.valid || phone.untouched"
+          [class.d-none]="phone.valid || !phone.touched"
           >Phone is required</small
-        >
-        <small class="text-danger" [class.d-none]="!phone.valid">
-          Please, Enter a valid Phone Number
-        </small>
+        > -->
+        <!-- <small class="text-info" [class.d-none]="phone.invalid || phone.untouched">
+         Please, Enter a valid 10 digit Phone Number
+        </small> -->
+        <div class ="text-danger error_container"  *ngIf="phone.errors?.required && phone.touched">
+            Mobile Number is required.
+          </div>
+        <div class ="text-danger error_container" *ngIf="phone.errors?.pattern">
+            Please, Enter 10 digit Mobile Number.
+          </div>
       </div>
       <div class="form-group">
         <label for="fullname">Full Name :</label>
@@ -64,13 +72,12 @@
           ngModel
           required
         />
-        <small
-          class="text-danger"
-          [class.d-none]="password.valid || password.untouched">
-          Password is required</small>
-        <small class="text-danger" [class.d-none]="!password.valid || password.touched">
-          Min 8, atleast 1 upper, lowercase, digit & special character
-        </small>
+        <div class ="text-danger error_container"  *ngIf="password.errors?.required && password.touched">
+            Password is required.
+          </div>
+        <div class ="text-danger error_container" *ngIf="password.errors?.pattern">
+            Min 8, atleast 1 upper, lowercase, digit & special character
+          </div>
       </div>
 
       <label for="gender">Gender :</label>
@@ -113,6 +120,9 @@
             ngModel
           />Other
         </label>
+      </div>
+      <div class ="text-danger error_container"  *ngIf="gender.errors?.required && gender.touched">
+            Gender is required.
       </div>
 
       <!-- <div class="form-group mt-2">

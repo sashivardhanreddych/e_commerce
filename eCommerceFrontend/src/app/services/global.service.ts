@@ -1,16 +1,20 @@
+// Imports from external(npm) dependencies
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
+
+// Imports form Internal dependencies
 import { environment } from './../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GlobalService {
-
+  // Backend common url
   apiBaseUrl: string = environment.apiBaseUrl;
 
+  // Backend respective component Url's
   changePasswordUrl = this.apiBaseUrl + 'generic/changePassword';
   resetUrl = this.apiBaseUrl + 'generic/resetPassword';
   forgotUrl = this.apiBaseUrl + 'generic/forgotPassword';
@@ -24,39 +28,53 @@ export class GlobalService {
   isLoggedin = false;
   public loggedInSubject = new Subject<boolean>();
 
-  // setLoggedin used to tell a user login 
+  // setLoggedin used to tell a user login
   setLoggedin(value: boolean) {
     this.loggedInSubject.next(value);
   }
   // register user to send the data to server
-  registerUser(userObj:any) {
+  registerUser(userObj: any) {
     return this.http.post<any>(this.registerUrl, userObj);
   }
 
-  loginUser(userObj:any) {
+  // login user to send the data to server
+  loginUser(userObj: any) {
     return this.http.post<any>(this.loginUrl, userObj);
   }
 
+  // when user login the token will save in the s-cart token
   saveToken(token: string) {
     localStorage.setItem('SCART', token);
   }
+
+  // when user logout the token will remove from the s-cart token
   removeToken() {
     localStorage.removeItem('SCART');
   }
+
+  // To get the SCART token from localstorage
   getToken(token: string) {
     return localStorage.getItem('SCART');
   }
-  onForgot(userObj:any) {
+
+  // Used to send the data to server
+  onForgot(userObj: any) {
     return this.http.post<any>(this.forgotUrl, userObj);
   }
-  onReset(userObj:any, token: string) {
+
+  // Used to reset the password and change the url
+  onReset(userObj: any, token: string) {
     this.resetUrl = this.resetUrl + '/' + token;
     console.log(this.resetUrl);
     return this.http.patch<any>(this.resetUrl, userObj);
   }
-  onChangePassword(userObj:any) {
+
+  // Used to change the password 
+  onChangePassword(userObj: any) {
     return this.http.patch<any>(this.changePasswordUrl, userObj);
   }
+
+  // Used to authenticate the user
   isAuthenticated(): boolean {
     console.log('in global service authGuard');
 
@@ -72,11 +90,11 @@ export class GlobalService {
     }
   }
 
+  // logout the user and expired the token
   logout() {
     this.removeToken();
     this.isLoggedin = false;
     this.router.navigateByUrl('/login');
     this.setLoggedin(false);
   }
-
 }
