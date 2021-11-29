@@ -8,5 +8,13 @@ if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+platformBrowserDynamic()
+  .bootstrapModule(AppModule)
+  // .then((module) => {
+  //   if (!environment.production) {
+  //     const applicationRef = module.injector.get(ApplicationRef);
+  //     const appComponent = applicationRef.components[0];
+  //     enableDebugTools(appComponent);
+  //   }
+  // })
+  .catch((err) => console.error(err));

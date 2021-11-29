@@ -2,7 +2,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -14,6 +14,7 @@ import { ErrorInterceptor } from './interceptors/error.interceptor';
 // imports modules from angular material
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 
@@ -22,6 +23,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ToastModule } from 'primeng/toast';
 import { PasswordModule } from 'primeng/password';
 import { DividerModule } from "primeng/divider";
+// import { MessageServiceModule } from 'primeng/api';
 
 // imports Modules from internal dependencies
 import { UserDashboardModule} from './user-dashboard/user-dashboard.module';
@@ -47,7 +49,7 @@ import { NotificationsComponent } from './global_components/notifications/notifi
     ChangepasswordComponent,
     ForgotpasswordComponent,
     PagenotfoundComponent,
-    NotificationsComponent
+    NotificationsComponent,
   ],
   // Imported Internal Modules
   imports: [
@@ -65,12 +67,14 @@ import { NotificationsComponent } from './global_components/notifications/notifi
     // Angular material
     MatSidenavModule,
     MatSnackBarModule,
+    MatDialogModule,
 
     //primeNg modules
     InputTextModule,
     ToastModule,
     PasswordModule,
     DividerModule,
+    // MessageService
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
