@@ -23,7 +23,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ToastModule } from 'primeng/toast';
 import { PasswordModule } from 'primeng/password';
 import { DividerModule } from "primeng/divider";
-// import { MessageServiceModule } from 'primeng/api';
+// import { MessageService } from 'primeng/api';
 
 // imports Modules from internal dependencies
 import { UserDashboardModule} from './user-dashboard/user-dashboard.module';
@@ -74,7 +74,7 @@ import { NotificationsComponent } from './global_components/notifications/notifi
     ToastModule,
     PasswordModule,
     DividerModule,
-    // MessageService
+    // MessageService,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

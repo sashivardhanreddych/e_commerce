@@ -8,8 +8,7 @@ import { NotificationsComponent } from '../global_components/notifications/notif
 export class NotificationsService {
   constructor(private snackBar: MatSnackBar) {}
 
-  // it shows the Notifications
-  
+  // It push the Notifications
   showNotification(displayMessage:string,buttonText:string,messageType:'error'|'success') {
     this.snackBar.openFromComponent(NotificationsComponent, {
       data: {
