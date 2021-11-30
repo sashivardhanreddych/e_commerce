@@ -15,11 +15,11 @@ export class GlobalService {
   apiBaseUrl: string = environment.apiBaseUrl;
 
   // Backend respective component Url's
-  changePasswordUrl = this.apiBaseUrl + 'generic/changePassword';
-  resetUrl = this.apiBaseUrl + 'generic/resetPassword';
-  forgotUrl = this.apiBaseUrl + 'generic/forgotPassword';
-  loginUrl = this.apiBaseUrl + 'generic/login';
-  registerUrl = this.apiBaseUrl + 'api/signup';
+  changePasswordUrl = this.apiBaseUrl + 'users/changepassword';
+  resetUrl = this.apiBaseUrl + 'users/resetpassword';
+  forgotUrl = this.apiBaseUrl + 'users/forgotpassword';
+  loginUrl = this.apiBaseUrl + 'users/login';
+  registerUrl = this.apiBaseUrl + 'users/signup';
   presentUser: any;
 
   constructor(private http: HttpClient, private router: Router) {}

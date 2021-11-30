@@ -45,16 +45,16 @@
           placeholder="Enter Your Full Name"
           id="fullname"
           class="form-control"
-          [class.is-invalid]="!fname.valid && fname.touched"
-          [class.is-valid]="fname.valid && fname.touched"
-          name="fname"
-          #fname="ngModel"
+          [class.is-invalid]="!name.valid && name.touched"
+          [class.is-valid]="name.valid && name.touched"
+          name="name"
+          #name="ngModel"
           ngModel
           required
         />
         <small
           class="text-danger"
-          [class.d-none]="fname.valid || fname.untouched"
+          [class.d-none]="name.valid ||name.untouched"
           >Full Name is required</small
         >
       </div>
@@ -154,7 +154,7 @@
       </div>
       <div class="login_container ">
         <span>Already Have an Account? </span>
-        <a routerLink="/login">Log In</a> 
+        <a routerLink="users/login">Log In</a> 
       </div>
     </form>
     <!-- </div> -->

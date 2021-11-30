@@ -10,11 +10,11 @@ import { ChangepasswordComponent } from './global_components/changepassword/chan
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignupComponent },
-  { path: 'forgotpassword', component: ForgotpasswordComponent },
-  { path: 'changepassword', component: ChangepasswordComponent }
+  { path: '', redirectTo: 'users/login', pathMatch: 'full' },
+  { path: 'users/login', component: LoginComponent },
+  { path: 'users/signup', component: SignupComponent },
+  { path: 'users/forgotpassword', component: ForgotpasswordComponent },
+  { path: 'users/changepassword', component: ChangepasswordComponent }
   // { path: '**', component: PagenotfoundComponent },
 ];
 
